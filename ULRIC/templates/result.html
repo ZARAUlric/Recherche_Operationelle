@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Résultat</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Résultat de l'affectation</h2>
+
+<table border="1">
+
+{% for row in matrix %}
+<tr>
+{% for v in row %}
+<td>{{ v }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+
+</table>
+
+<h3>Affectation optimale</h3>
+
+<div class="result">
+
+{% for i in range(assign|length) %}
+Agent {{i+1}} → Tâche {{assign[i]+1}} <br>
+{% endfor %}
+
+</div>
+
+<h3>Coût total : {{cost}}</h3>
+
+<br>
+
+<a href="/">Retour</a>
+
+</div>
+
+</body>
+</html>
